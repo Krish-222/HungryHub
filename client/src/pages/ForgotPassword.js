@@ -9,7 +9,7 @@ function ForgotPassword() {
     const navigate=useNavigate();
     const handleSubmit=async()=>{
         try{
-        const {data}=await axios.post("http://localhost:5000/api/v1/users/resetpassword",{email});
+        const {data}=await axios.post("hungry-hub-nu.vercel.app/api/v1/users/resetpassword",{email});
         toast.success("password change link send to your mailbox")
         console.log(data)
         }
