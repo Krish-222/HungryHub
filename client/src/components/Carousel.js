@@ -1,6 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
+// import { useContext } from 'react';
+// import { useSearchBox, useSearchDispatch } from './searchProvider';
 
-export default function Carousel(){
+
+
+
+export default function Carousel({imgURL,filterData}){
+  // const searchBox = useSearchBox();
+  // const useDispatch =  useSearchDispatch();
 
 return(
 <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel"
@@ -11,13 +19,13 @@ style={{width:"100%"}}
      
   }}>
     <div className="carousel-item active">
-      <img className="d-block w-100" style={{objectFit:"contain !important",objectPosition:"center",filter:"brightness(30%)"}} src="https://source.unsplash.com/random/250×250/?burger"/>
+      <img className="d-block w-100" style={{objectFit:"contain !important",objectPosition:"center",filter:"brightness(30%)"}} src={imgURL}/>
     </div>
     <div class="carousel-item">
-      <img  className="d-block w-100" style={{objectFit:"contain !important",objectPosition:"center",filter:"brightness(30%"}} src="https://source.unsplash.com/random/250×250/?pizza"/>
+      <img  className="d-block w-100" style={{objectFit:"contain !important",objectPosition:"center",filter:"brightness(30%"}} src={imgURL}/>
     </div>
     <div className="carousel-item">
-      <img  className="d-block w-100" style={{objectFit:"contain !important",objectPosition:"center",filter:"brightness(30%"}} src="https://source.unsplash.com/random/250×250/?pasta"/>
+      <img  className="d-block w-100" style={{objectFit:"contain !important",objectPosition:"center",filter:"brightness(30%"}} src={imgURL}/>
     </div>
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -43,8 +51,8 @@ style={{width:"100%"}}
         width:"70%",
         
         // positon:"absolute"
-    }}><input type="text"/></div>
+    }}><input class="search-box" type="text" placeholder="Search Category" onChange={e=>filterData(e.target.value)} /></div>
 
-    <div className="search-btn"><button>Search</button></div>
+    {/* <div className="search-btn"><button  >Search</button></div> */}
   </div>
 </div>)}
