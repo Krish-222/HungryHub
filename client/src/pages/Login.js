@@ -16,7 +16,7 @@ function Login() {
     setLoading(true);
     const {email, password} = details;
     try {
-      const { data } = await axios.post("http://localhost:5000/api/v1/users/login", { email, password })
+      const { data } = await axios.post("hungry-hub-nu.vercel.app/api/v1/users/login", { email, password })
       //  console.log(result)
       if (data.status === "success"){
         setTimeout(() => { toast.success("successfully logged in", { position: "top-center", autoClose: 2000, hideProgressBar: true }) }, 1)

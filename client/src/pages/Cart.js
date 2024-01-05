@@ -71,7 +71,7 @@ function Cart() {
     let order_data=state;
 
     const date=(new Date()).toString();
-    const result=await axios.post("/api/v1/orders/createorder",{email,order_data,date})
+    const result=await axios.post("hungry-hub-nu.vercel.app/api/v1/orders/createorder",{email,order_data,date})
     await dispatch({type:"DROP"})
     setCheckout(false);
     toast.success("order placed successfully",{position:"bottom-center"})
@@ -114,6 +114,7 @@ function Cart() {
           </tbody>
         </table>
         <Button type="submit"  onClick={handleCheckout}>Checkout</Button>
+        <Button >Go Back to Home</Button>
         {checkout && <span class="loader"><Loader/></span>}
         </div>
 

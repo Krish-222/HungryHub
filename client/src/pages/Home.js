@@ -27,10 +27,10 @@ function Home() {
 
 
   const fetchData = async () => {
-    var { data } = await axios.get("http://localhost:5000/api/v1/food/fooddata");
+    var { data } = await axios.get("hungry-hub-nu.vercel.app/api/v1/food/fooddata");
     console.log("food", data.data.foodData);
     setFoodData(data.data.foodData);
-    var { data } = await axios.get("http://localhost:5000/api/v1/food/foodcategory");
+    var { data } = await axios.get("hungry-hub-nu.vercel.app/api/v1/food/foodcategory");
     console.log("foodcategory", data.data.foodCategory);
     setFoodCategory(data.data.foodCategory);
 
@@ -73,7 +73,7 @@ function Home() {
 
   // console.log(foodData);
   return (
-    <div style={{backgroundColor:"black"}}>
+    <div >
       {/* <Navbar/> */}
 
       <Header />

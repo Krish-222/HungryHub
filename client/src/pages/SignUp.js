@@ -33,7 +33,7 @@ const SignUp = () => {
     try {
       const { name, email, password, confirmPassword } = values;
       console.log(values);
-      const {data} = await axios.post('/api/v1/users/signup', { name, email: email.toLowerCase(), password, confirmPassword });
+      const {data} = await axios.post('hungry-hub-nu.vercel.app/api/v1/users/signup', { name, email: email.toLowerCase(), password, confirmPassword });
       if (data.status==="success") {
         localStorage.setItem('authtoken', true);
         localStorage.setItem("email", email);
