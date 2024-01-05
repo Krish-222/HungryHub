@@ -26,14 +26,14 @@ function Home() {
   const [foodCategory, setFoodCategory] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      var { data } = await axios.get("http://localhost:5000/api/v1/food/fooddata");
+      var { data } = await axios.get("/api/v1/food/fooddata");
 
       console.log("food", data.data.foodData);
       // console.log()
 
       setFoodData(data.data.foodData);
 
-      var { data } = await axios.get("http://localhost:5000/api/v1/food/foodcategory");
+      var { data } = await axios.get("/api/v1/food/foodcategory");
       console.log("foodcategory", data.data.foodCategory);
       setFoodCategory(data.data.foodCategory);
 
