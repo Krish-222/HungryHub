@@ -6,13 +6,13 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { CartProvider } from "./components/CartProvider";
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import Practice from "./components/Practice";
+
 import Cart from "./pages/Cart";
 import { ToastContainer } from "react-toastify";
 import MyOrder from "./pages/MyOrder";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import searchProvider from "./components/searchProvider.js";
+
 // import clientID from "../Client_Id";
 
 function App() {
