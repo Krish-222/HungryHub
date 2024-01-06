@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -18,6 +18,7 @@ const SignUp = () => {
     password: '',
     confirmPassword: '',
   };
+  const [isSubmitting,setSubmitting]=useState(false);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -28,9 +29,10 @@ const SignUp = () => {
       .required('Confirm Password is required'),
   });
 
-  const handleSubmit = async (values, { setSubmitting }) => {
+  const handleSubmit = async (values) => {
     try {
       const { name, email, password, confirmPassword } = values;
+      console.log(values);
       const {data} = await axios.post('/api/v1/users/signup', { name, email: email.toLowerCase(), password, confirmPassword });
       if (data.status==="success") {
         localStorage.setItem('authtoken', true);
@@ -107,7 +109,7 @@ const SignUp = () => {
               <div>
                 Already registered? <Link to="/login">Login</Link>
               </div>
-              <Google style={{marginTop:"5px"}}/>
+              <Google style={{marginTop:"5px"}} handleSignUp={handleSubmit}/>
             </Form>
           )}
         </Formik>

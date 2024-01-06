@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import MyOrder from "./pages/MyOrder";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import searchProvider from "./components/searchProvider.js";
 // import clientID from "../Client_Id";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <>
       <ToastContainer/>
       <GoogleOAuthProvider clientId="1044607482658-dnjfu0ioqabi15c92b1tf2qukblkbjh9.apps.googleusercontent.com">
+      {/* <searchProvider> */}
       <CartProvider>
           <Router>
             <Routes>
@@ -33,6 +35,7 @@ function App() {
             </Routes>
           </Router>
         </CartProvider>
+        {/* </searchProvider> */}
       </GoogleOAuthProvider>
     </>
   );

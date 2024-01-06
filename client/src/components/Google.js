@@ -7,7 +7,7 @@ import { useNavigate ,useLocation} from 'react-router-dom';
 
 import jwt_decode from "jwt-decode";
 
-function Google() {
+function Google(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const responseMessage = async (response) => {
@@ -18,16 +18,20 @@ function Google() {
     // const id=jwt_decode(response.clientId)
     // console.log(id)
     console.log(details);
+    const detail={email:details.email, password:details.given_name,confirmPassword:details.given_name,name:details.given_name}
     if (location.pathname=== "/login") {
+      
 
       try {
-        const {data} = await axios.post("/login", { email: details.email, password: details.given_name });
-        // console.log(result)
-        if (data.status === 'success') {
-          setTimeout(() => { toast.success("successfully logged in", { position: "top-center", autoClose: 2000, hideProgressBar: true }) }, 1)
-          localStorage.setItem("authtoken", true)
-          navigate("/");
-        }
+        // const {data} = await axios.post("/login", { email: details.email, password: details.given_name });
+        // // console.log(result)
+        // if (data.status === 'success') {
+        //   setTimeout(() => { toast.success("successfully logged in", { position: "top-center", autoClose: 2000, hideProgressBar: true }) }, 1)
+        //   localStorage.setItem("authtoken", true)
+        //   navigate("/");
+        // }
+        await props.handleLogIn(detail);
+
       }
       catch (err) {
         console.log(err);
@@ -35,12 +39,15 @@ function Google() {
       }
     }
     else {
-      try {
-        const result = await axios.post("/signup", { name: details.given_name, email: details.email, password: details.given_name, confirmPassword: details.given_name });
-        if (result.status === 200) {
-          navigate("/");
-          setTimeout(() => { toast.success("successfully signed up", { position: "top-center", autoClose: 2000 }) }, 1)
-        }
+      // try {
+      //   const result = await axios.post("/signup", { name: details.given_name, email: details.email, password: details.given_name, confirmPassword: details.given_name });
+      //   if (result.status === 200) {
+      //     navigate("/");
+      //     setTimeout(() => { toast.success("successfully signed up", { position: "top-center", autoClose: 2000 }) }, 1)
+      //   }
+      // }
+      try{
+        await props.handleSignUp(detail)
       }
       catch (err) {
         console.log(err);

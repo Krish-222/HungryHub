@@ -12,13 +12,13 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate()
-  const handleLogIn = async (e) => {
-    e.preventDefault();
+  const handleLogIn = async (details={email,password}) => {
     setLoading(true);
+    const {email, password} = details;
     try {
       const { data } = await axios.post("hungry-hub-nu.vercel.app/api/v1/users/login", { email, password })
       //  console.log(result)
-      if (data.status === "success") {
+      if (data.status === "success"){
         setTimeout(() => { toast.success("successfully logged in", { position: "top-center", autoClose: 2000, hideProgressBar: true }) }, 1)
         localStorage.setItem("email", email)
         localStorage.setItem("authtoken", true)
@@ -51,7 +51,7 @@ function Login() {
         <div><button type="Submit" className='submit' onClick={handleLogIn}>{loading ? <Loader /> : <span>Login</span>}</button></div>
         <div style={{ display: "flex", justifyContent: "space-between", margin: "10px 0" }}>
           <div>New User? <Link to="/signup" element={SignUp} style={{ "textDecoration": "none" }}>Register</Link></div><div><Link style={{color:"blue"}} to="/forgotpassword">Forgot password</Link></div></div>
-        <Google style={{ textAlign: "center" }} />
+        <Google style={{ textAlign: "center" } } handleLogIn ={handleLogIn} />
 
       </div>
 

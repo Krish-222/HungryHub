@@ -16,8 +16,6 @@ const navigate=useNavigate()
     console.log(token,userId)
     const handleSubmit = async () => {
         try{
-      
-
         if (password != confirmPassword) {
             toast.error("password and confirm password should be same");
             return ;
