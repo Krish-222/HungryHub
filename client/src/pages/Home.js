@@ -38,24 +38,7 @@ function Home() {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
-    const fetchData = async () => {
-      var { data } = await axios.get("/api/v1/food/fooddata");
-
-      console.log("food", data.data.foodData);
-      // console.log()
-
-      setFoodData(data.data.foodData);
-
-      var { data } = await axios.get("/api/v1/food/foodcategory");
-      console.log("foodcategory", data.data.foodCategory);
-      setFoodCategory(data.data.foodCategory);
-
-      // console.log(data.foodData);
-    };
-=======
     
->>>>>>> 2ba0415 (added some new features)
     fetchData();
     const fetchFoodImages=async()=>{
       try{

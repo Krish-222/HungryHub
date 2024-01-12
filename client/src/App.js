@@ -6,13 +6,13 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { CartProvider } from "./components/CartProvider";
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import Practice from "./components/Practice";
+// import Practice from "./components/Practice";
 import Cart from "./pages/Cart";
 import { ToastContainer } from "react-toastify";
 import MyOrder from "./pages/MyOrder";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
-import searchProvider from "./components/searchProvider.js";
+// import searchProvider from "./components/searchProvider.js";
 // import clientID from "../Client_Id";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
               <Route path="/" element={<Home />}></Route>
               <Route path="/signup" element={<SignUp />}></Route>
               <Route path='/login' element={<Login />}></Route>
-              <Route path="/practice" element={<Practice />}></Route>
+              {/* <Route path="/practice" element={<Practice />}></Route> */}
               <Route path="/cart" element={<Cart />}></Route>
               <Route path="/myorders" element={<MyOrder />}></Route>
               <Route path="/forgotpassword" element={<ForgotPassword/>}></Route>
