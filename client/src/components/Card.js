@@ -20,6 +20,7 @@ function Card(props) {
 
             let flag = false;
             console.log(state);
+            console.log("props",props);
             for (let item of state) {
                 if (item.id === props.id) {
                     flag = true;

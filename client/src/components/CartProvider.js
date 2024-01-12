@@ -4,12 +4,12 @@ const cartstateContext=createContext();
 const cartDispatchContext=createContext();
 const reducer= (state,action)=>{
   const {type}=action
-  const {name,selectType,price,selectQty}=action
+  const {name,selectType,price,selectQty,id}=action
   switch(type){
     case "ADD":
       console.log(state);
       let ar=[...state]
-       ar.splice(ar.length-1,0,{name,selectType,selectQty,price})
+       ar.splice(ar.length-1,0,{name,selectType,selectQty,price,id})
       return ar
 
     case "REMOVE":
@@ -27,7 +27,7 @@ const reducer= (state,action)=>{
       }
       // console.log(state)
       const updatedState=[...state]
-      updatedState.splice(c, 1, { name, selectType, selectQty, price });
+      updatedState.splice(c, 1, { name, selectType, selectQty, price,id });
       console.log(updatedState)
       return updatedState;
 

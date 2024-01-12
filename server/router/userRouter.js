@@ -12,8 +12,4 @@ userRouter.route("/login").post(checkUser,urlencodedParser);
 userRouter.route("/logout").get(logOut);
 userRouter.route("/resetpassword").post(resetPassword,urlencodedParser);
 userRouter.route("/checkresetoken").post(checkingTokenAndReseting,urlencodedParser);
-
-
-
-
 module.exports = userRouter;

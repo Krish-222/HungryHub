@@ -16,8 +16,6 @@ const navigate=useNavigate()
     console.log(token,userId)
     const handleSubmit = async () => {
         try{
-      
-
         if (password != confirmPassword) {
             toast.error("password and confirm password should be same");
             return ;
@@ -28,7 +26,7 @@ const navigate=useNavigate()
             return;
         }
 
-        const { data } = await axios.post("hungry-hub-nu.vercel.app/api/v1/users/checkresetoken", { token, userId ,password});
+        const { data } = await axios.post("/api/v1/users/checkresetoken", { token, userId ,password});
         if(data.status==="success"){
             setTimeout(()=>toast.success("pasword updated successfully"),1)
             navigate("/login");
