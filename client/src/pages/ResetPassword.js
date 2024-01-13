@@ -26,7 +26,7 @@ const navigate=useNavigate()
             return;
         }
 
-        const { data } = await axios.post("/api/v1/users/checkresetoken", { token, userId ,password});
+        const { data } = await axios.post("https://hungry-hub-nu.vercel.app/api/v1/users/checkresetoken", { token, userId ,password});
         if(data.status==="success"){
             setTimeout(()=>toast.success("pasword updated successfully"),1)
             navigate("/login");

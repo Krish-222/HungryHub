@@ -11,7 +11,7 @@ function MyOrder() {
     const fetchData = async () => {
       try {
         const email = localStorage.getItem('email');
-        const { data } = await axios.post("/api/v1/orders/allorders", { email,state });
+        const { data } = await axios.post("https://hungry-hub-nu.vercel.app/api/v1/orders/allorders", { email,state });
         if (data.status === "success") {
           console.log(data.data.orders);
           setData(data.data.orders);
