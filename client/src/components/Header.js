@@ -16,7 +16,7 @@ function Header() {
   const handleLogout = async () => {
     localStorage.removeItem("authtoken");
     localStorage.removeItem("email");
-    await axios.get("/api/v1/users/logout")
+    await axios.get("https://hungry-hub-nu.vercel.app/api/v1/users/logout")
     setTimeout(() => {
       toast.success("Logout successfull", {
         autoClose: 2000,
