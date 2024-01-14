@@ -23,7 +23,7 @@ app.use("/api/v1/food",foodRouter)
 
 
 //app backend on port 5000
-app.listen(port, "localhost", () => {
+app.listen(port, () => {
     console.log("connected on port", port)
 
 })
